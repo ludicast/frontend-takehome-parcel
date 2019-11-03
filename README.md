@@ -1,3 +1,12 @@
+# GemTumble
+
+Move to typescript.
+
+1. You folks use the language
+2. I prefer it
+3. It allows "better reduxing" through libs like typesafe-actions.
+4. Safer programming, and better sets the project up for "programming in the large".
+
 # Teachable frontend takehome
 
 If you're reading this, you're likely a candidate for a frontend job at Teachable. You're going to be building a search application that takes a user's search query, hits the [Ruby Gems](https://rubygems.org/) search API endpoint, and displays the results in a list view with some added functionality (detailed below).
