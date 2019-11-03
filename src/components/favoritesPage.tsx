@@ -5,8 +5,7 @@ import { currentFavoritesList } from '../store/selectors';
 
 export const FavoritesPage = () => {
     const favorites = useSelector(currentFavoritesList);
-    
-        return <ul>{favorites.map(
-            (fave, key) => <li key={key}>heart: {fave}</li>
-        )}</ul>
+    return <ul>{favorites.map(
+        (fave, key) => <li key={key}>heart: {fave}</li>
+    )}</ul>
 }

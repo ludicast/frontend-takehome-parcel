@@ -4,6 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { currentGemList, areGemsLoading } from '../store/selectors';
 import { fetchGemsAsync } from '../store/actions';
 import { GemCard } from './gemCard';
+import { Gem } from '../models';
+
+const GemGrid = ({gems}: {gems: Gem[]}) => {
+    return <ul>
+        {
+        gems.map(
+            (gem, key) => <GemCard gem={gem} key={key}></GemCard>
+        )
+        }
+    </ul>
+}
 
 export const SearchPage = () => {
     const gemList = useSelector(currentGemList);
@@ -14,7 +25,12 @@ export const SearchPage = () => {
     const search = () => {
         dispatch(fetchGemsAsync.request(query))
     };
-    
+
+    const starterSearch = (query: string) => {
+        setQuery(query);
+        search();
+    };
+
     return <>
         <input
             type="text"
@@ -22,13 +38,9 @@ export const SearchPage = () => {
             onChange={evt => setQuery(evt.target.value)}
         />
         <button disabled={query===""} onClick={search}>search</button>
+        
         <b>{loadingList ? "LOADING" : ""}</b>
-        <ul>
-            {
-            gemList.map(
-                (gem, key) => <GemCard gem={gem} key={key}></GemCard>
-            )
-            }
-        </ul>
+        {gemList.length > 0 ? <GemGrid gems={gemList}></GemGrid>
+        : query.length === 0  &&  <p>Load.  Some suggestions: <b onClick={starterSearch('rspec')}>rspec</b>  </p> }
     </>
 }
