@@ -1,7 +1,10 @@
 import { createSelector } from "reselect";
-import { GemState, AppState, FavoritesState } from "./reducers";
+import { AppState } from "./reducers";
+import { GemState } from "./reducers/gems";
+import { FavoritesState } from "./reducers/favorites";
 
 const gemStateSelector = (state: AppState) => state.gems;
+export const searchStateSelector = (state: AppState) => state.search;
 const favoritesStateSelector = (state: AppState) => state.favorites;
 
 export const currentGemList  = createSelector(

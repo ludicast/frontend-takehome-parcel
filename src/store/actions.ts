@@ -1,5 +1,4 @@
-import { createAsyncAction, action, createAction } from 'typesafe-actions';
-}
+import { createAsyncAction, createAction } from 'typesafe-actions';
 import { Gem } from "../models/gem"
 
 export const fetchGemsAsync = createAsyncAction(
