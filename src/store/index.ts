@@ -5,19 +5,22 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import { combineEpics, createEpicMiddleware } from "redux-observable"
 
 import { reducer } from "./reducers";
+import epics from "./epics";
+import { ajax } from "rxjs/ajax";
 
 const persistConfig = {
-  key: 'favorites',
+  key: 'root',
   storage,
   whitelist: ['favorites'] 
 }
+
 const persistedReducer = persistReducer(persistConfig, reducer);
 
-const epic1 = () => of({type: "SET_NAME", payload: "Salty"});
-
 export const configureStore = () => {
-    const rootEpic = combineEpics(epic1);
-    const epicMiddleware = createEpicMiddleware();
+    const rootEpic = combineEpics(...epics);
+    const epicMiddleware = createEpicMiddleware({
+        dependencies: { getJSON: ajax.getJSON }
+    });
 
     const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(epicMiddleware)));
