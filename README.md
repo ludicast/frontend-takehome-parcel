@@ -1,11 +1,19 @@
 # GemTumble
 
-Move to typescript.
 
-1. You folks use the language
-2. I prefer it
-3. It allows "better reduxing" through libs like typesafe-actions.
-4. Safer programming, and better sets the project up for "programming in the large".
+## Approach
+1. Move to typescript.
+    1. It allows "better reduxing" through libs like typesafe-actions.
+    1. Safer programming, and sets the project up for "programming in the large".
+1. Add redux and affiliated libraries
+    1. typesafe-actions (support for typescript and react)
+    1. redux-observable (leverages rxjs to flow)
+    1. redux-persist (for persisting favorites redux slice to local storage)
+    1. reselect (memoized selectors)
+1. Other libraries
+   1. material-ui (for widgets)
+   1. react-router
+   1. lodash
 
 # Teachable frontend takehome
 
