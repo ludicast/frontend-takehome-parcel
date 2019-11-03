@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { useSelector } from "react-redux";
 import { currentFavoritesList } from '../store/selectors';
 
-export const Favorites = () => {
+export const FavoritesPage = () => {
     const favorites = useSelector(currentFavoritesList);
     
         return <ul>{favorites.map(
