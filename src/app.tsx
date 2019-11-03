@@ -33,6 +33,12 @@ export const App = () => {
                 versionDownloads: 455,
                 authors: "Nord Kidwell",
             },
+            {
+                name: "gem 3",
+                downloads: 3444,
+                versionDownloads: 455,
+                authors: "Nord Kidwell",
+            },
         ]))
     }, []);
     return (<><ul>

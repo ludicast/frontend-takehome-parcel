@@ -1,6 +1,6 @@
 import { favorite, unfavorite } from "../actions"
 import { createReducer } from "typesafe-actions";
 
-export type SearchState = string | undefined;
+export type SearchState = string;
 
-export const searchReducer = createReducer(undefined);
+export const searchReducer = createReducer("");

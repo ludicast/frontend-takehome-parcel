@@ -7,7 +7,7 @@ import { initialGemState } from "./reducers/gems";
 const initialState: AppState = {
     favorites: initialFavoritesState,
     gems: initialGemState,
-    search: undefined
+    search: ""
 }
 
 const populatedState: AppState = {
@@ -57,9 +57,9 @@ describe("selectors", () => {
     });
 
     describe("searchState selector", () => {
-        it("returns undefined when there no search string", () => {
+        it("returns a blank when there no search string", () => {
             const searchState = searchStateSelector(initialState);
-            expect(searchState).toEqual(undefined);
+            expect(searchState).toEqual("");
         });
 
         it("returns the searchString when it exists", () => {
