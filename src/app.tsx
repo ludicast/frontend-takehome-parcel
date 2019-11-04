@@ -10,7 +10,8 @@ import MuiAppBar from '@material-ui/core/AppBar';
 import { SearchPage } from './components/searchPage';
 import { SearchProvider } from './searchContext';
 import { FavoritesPage } from './components/favoritesPage';
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Toolbar } from '@material-ui/core';
+
 import { useStyles } from './components/classes';
 
 export const App = () => {
@@ -18,6 +19,8 @@ export const App = () => {
     return (<>
     <Router>
         <MuiAppBar position="sticky" className={classes.titleBar}>
+            <Toolbar>
+
            <Typography variant="h5" className={classes.title}>
                 GemTumble
             </Typography>
@@ -31,6 +34,7 @@ export const App = () => {
                     Favorites
                 </Button>
             </Link>
+            </Toolbar>
         </MuiAppBar>
         <SearchProvider>
             <Switch>

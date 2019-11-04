@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
     titleBar: {
-        display: "flex"
     },
     title: {
         flexGrow: 1,
