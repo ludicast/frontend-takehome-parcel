@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import Grid from '@material-ui/core/Grid';
 
 import { GemCard } from './gemCard';
 import { Gem } from '../models';
@@ -9,11 +9,12 @@ import { areGemsLoading } from '../store/selectors';
 export const GemGrid = ({gems}: {gems: Gem[]}) => {
     const loadingList = useSelector(areGemsLoading);
 
-    return <ul>
+    return <Grid container spacing={4}>
         {
         gems.map(
-            (gem, key) => <GemCard gem={gem} key={key}></GemCard>
+            (gem, key) => <Grid item key={key} xs={12} sm={6} md={4}>
+                <GemCard gem={gem}></GemCard>
+            </Grid>
         )
-        }
-    </ul>
+        }</Grid>
 }
