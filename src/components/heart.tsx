@@ -18,8 +18,7 @@ export const Heart = ({name}: {name: string}) => {
         dispatch(action(name));
     }
 
-    return <>{isFavorite
-        ? <FavoriteOutlinedIcon className={classes.heartColor}  onClick={toggleFavored} />
-        : <FavoriteBorderOutlinedIcon className={classes.heartColor} onClick={toggleFavored} />
-    }</>
+    return isFavorite
+        ? <FavoriteOutlinedIcon className={classes.heartIcon}  onClick={toggleFavored} />
+        : <FavoriteBorderOutlinedIcon className={classes.heartIcon} onClick={toggleFavored} />
 }

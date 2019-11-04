@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import Button from '@material-ui/core/Button';
 import { fetchGemsAsync } from '../store/actions';
@@ -10,6 +10,10 @@ export const SearchBar = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const {query, setQuery} = useContext(SearchContext);
+
+    useEffect(() => {
+        dispatch(fetchGemsAsync.request("cucumber"));
+    }, []);
 
     const startSearch = () => {
         dispatch(fetchGemsAsync.request(query));

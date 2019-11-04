@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 export const FavoritesPage = () => {
     const favorites = useSelector(currentFavoritesList);
-    return <Menu>{favorites.map(
-        (fave, key) => <MenuItem key={key}>heart: {fave}</MenuItem>
+    return <Menu open={true}>{favorites.map(
+        (fave, key) => <MenuItem key={key}>{fave}</MenuItem>
     )}</Menu>
 }
