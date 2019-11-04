@@ -1,4 +1,4 @@
-import { currentGemList, areGemsLoading, currentFavoritesList, searchStateSelector } from "./selectors";
+import { currentGemList, areGemsLoading, currentFavoritesList } from "./selectors";
 import { AppState } from "./reducers";
 import { Gem } from "~models";
 import { initialFavoritesState } from "./reducers/favorites";
@@ -51,18 +51,6 @@ describe("selectors", () => {
         it("returns when the gems are loading", () => {
             const loading = areGemsLoading(populatedState);
             expect(loading).toEqual(true);
-        });
-    });
-
-    describe("searchState selector", () => {
-        it("returns a blank when there no search string", () => {
-            const searchState = searchStateSelector(initialState);
-            expect(searchState).toEqual("");
-        });
-
-        it("returns the searchString when it exists", () => {
-            const searchState = searchStateSelector(populatedState);
-            expect(searchState).toEqual("rspec");
         });
     });
 });
