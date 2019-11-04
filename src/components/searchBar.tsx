@@ -1,30 +1,46 @@
 import React, { useContext } from 'react'
 import { useDispatch } from "react-redux";
-import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router";
 import { fetchGemsAsync } from '../store/actions';
 import { SearchContext } from '../searchContext';
-import TextField from '@material-ui/core/TextField';
 import { useStyles } from './classes';
+import SearchIcon from '@material-ui/icons/Search';
+import { InputBase } from '@material-ui/core';
 
 export const SearchBar = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const {query, setQuery} = useContext(SearchContext);
+    let history = useHistory();
 
     const startSearch = () => {
         dispatch(fetchGemsAsync.request(query));
+        history.push("/"); // go to search page
     };
+   
+    const changeQuery = (evt: any) => {
+        console.log(evt, query);
+        setQuery(evt.target.value);
+    }
 
-    return <>
-        <TextField
-          className={classes.searchTextField}
-          label="search"
-          margin="normal"
-          variant="outlined"
-          onChange={evt => setQuery(evt.target.value)}
-        />
-        <Button disabled={query===""} onClick={startSearch} variant="contained" color="primary">
-            Search
-        </Button>
-    </>
+    const catchReturn = (evt: KeyboardEvent) => {
+        if (evt.key === 'Enter' && !!query) {
+            startSearch();
+        }
+    }
+    return  <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              onKeyPress={catchReturn}
+              onChange={changeQuery}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>;
 }
