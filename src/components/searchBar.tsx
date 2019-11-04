@@ -19,7 +19,6 @@ export const SearchBar = () => {
     };
    
     const changeQuery = (evt: any) => {
-        console.log(evt, query);
         setQuery(evt.target.value);
     }
 
