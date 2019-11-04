@@ -1,4 +1,4 @@
-import { currentGemList, areGemsLoading, currentFavoritesList } from "./selectors";
+import { currentGemList, areGemsLoading, currentFavoriteNames, currentFavoriteGems } from "./selectors";
 import { AppState } from "./reducers";
 import { Gem } from "~models";
 import { initialFavoritesState } from "./reducers/favorites";
@@ -10,7 +10,7 @@ const initialState: AppState = {
 }
 
 const populatedState: AppState = {
-    favorites: ["capybara"],
+    favorites: {capybara: {name: "capybara"} as Gem},
     gems: {gems: new Map([
         ["capybara", {name: "capybara"} as Gem],
         ["cucumber", {name: "cucumber"} as Gem]
@@ -18,15 +18,27 @@ const populatedState: AppState = {
 }
 
 describe("selectors", () => {
-    describe("currentFavoritesList selector", () => {
+    describe("currentFavoriteNames selector", () => {
         it("returns an unpopulated gemList as an empty array", () => {
-            const gemList = currentFavoritesList(initialState);
+            const gemList = currentFavoriteNames(initialState);
             expect(gemList).toEqual([]);
         });
 
         it("returns a populated gemList as an array", () => {
-            const gemList = currentFavoritesList(populatedState);
+            const gemList = currentFavoriteNames(populatedState);
             expect(gemList).toEqual(["capybara"]);
+        });
+    });
+
+    describe("currentFavoriteGems selector", () => {
+        it("returns an unpopulated gemList as an empty array", () => {
+            const gemList = currentFavoriteGems(initialState);
+            expect(gemList).toEqual([]);
+        });
+
+        it("returns a populated gemList as an array", () => {
+            const gemList = currentFavoriteGems(populatedState);
+            expect(gemList).toEqual([{name: "capybara"}]);
         });
     });
 

@@ -11,9 +11,17 @@ export const currentGemList  = createSelector(
     (gemState: GemState) => Array.from(gemState.gems.values())
 );
 
-export const currentFavoritesList  = createSelector(
+export const currentFavoriteNames = createSelector(
     favoritesStateSelector,
-    (favoritesState: FavoritesState) => [...favoritesState]
+    (favoritesState: FavoritesState) => Object.keys(favoritesState)
+);
+
+export const currentFavoriteGems = createSelector(
+    favoritesStateSelector,
+    (favoritesState: FavoritesState) => {
+        const names = [...Object.keys(favoritesState)].sort();
+        return names.map(name => favoritesState[name]);
+    }
 );
 
 export const areGemsLoading  = createSelector(

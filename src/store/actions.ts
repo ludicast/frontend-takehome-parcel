@@ -8,5 +8,5 @@ export const fetchGemsAsync = createAsyncAction(
   'FETCH_GEMS_CANCEL'
 )<string, Gem[], Error, string>();
 
-export const favorite = createAction("FAVORITE")<string>();
-export const unfavorite = createAction("UNFAVORITE")<string>();
+export const favorite = createAction("FAVORITE")<Gem>();
+export const unfavorite = createAction("UNFAVORITE")<Gem>();

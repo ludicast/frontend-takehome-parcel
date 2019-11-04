@@ -13,7 +13,7 @@ export const GemCard = ({gem}: GemCardProps) => {
     return <Card className={classes.card}>
         <CardContent className={classes.cardContent}>
             <Typography variant="h5" component="h5">
-                <Heart name={gem.name}></Heart>
+                <Heart gem={gem}></Heart>
                 {gem.name}
             </Typography>
             <Typography>

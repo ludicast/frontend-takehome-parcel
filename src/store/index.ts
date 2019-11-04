@@ -9,7 +9,7 @@ import epics from "./epics";
 import { ajax } from "rxjs/ajax";
 
 const persistConfig = {
-  key: 'root',
+  key: 'faveKey',
   storage,
   whitelist: ['favorites'] 
 }

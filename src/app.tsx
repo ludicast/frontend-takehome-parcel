@@ -6,12 +6,12 @@ import {
   Link
 } from "react-router-dom";
 import MuiAppBar from '@material-ui/core/AppBar';
+import SearchIcon from '@material-ui/icons/Search';
 
 import { SearchPage } from './components/searchPage';
 import { SearchProvider } from './searchContext';
 import { FavoritesPage } from './components/favoritesPage';
-import { Button, Typography, Toolbar } from '@material-ui/core';
-
+import { Button, Typography, Toolbar, InputBase } from '@material-ui/core';
 import { useStyles } from './components/classes';
 
 export const App = () => {
@@ -24,11 +24,20 @@ export const App = () => {
            <Typography variant="h5" className={classes.title}>
                 GemTumble
             </Typography>
-            <Link to="/">
-                <Button color="primary" variant="contained">
-                    Search
-                </Button>
-            </Link>
+ <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+
             <Link to="/favorites">
                 <Button color="primary" variant="contained">
                     Favorites
