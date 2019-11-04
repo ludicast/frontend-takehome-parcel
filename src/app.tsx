@@ -4,9 +4,9 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+
 import { SearchPage } from './components/searchPage';
 import { SearchProvider } from './searchContext';
-
 import { FavoritesPage } from './components/favoritesPage';
 
 export const App = () => {

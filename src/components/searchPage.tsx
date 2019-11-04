@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
-import { currentGemList, areGemsLoading } from '../store/selectors';
+import { currentGemList } from '../store/selectors';
 import { fetchGemsAsync } from '../store/actions';
 import { SearchContext } from '../searchContext';
 import { GemGrid } from './gemGrid';
@@ -24,7 +23,6 @@ export const SearchPage = () => {
 
     return <>
         <SearchBar></SearchBar>
-        {gemList.length > 0 ? <GemGrid gems={gemList}></GemGrid>
-        : query.length === 0  &&  <p>Load.  Some suggestions: <b onClick={starterSearch('rspec')}>rspec</b>  </p> }
+        <GemGrid gems={gemList}></GemGrid>
     </>
 }

@@ -1,12 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Heart } from './heart';
 import { Gem } from "../models";
+import { useStyles } from './classes';
+import { Card, CardContent, Typography } from '@material-ui/core';
 
 interface GemCardProps {
     gem: Gem
 }
 
 export const GemCard = ({gem}: GemCardProps) => {
-    return <li><Heart name={gem.name}></Heart>: {gem.name}</li>;
+    const classes = useStyles();
+    return <Card className={classes.card}>
+        <CardContent className={classes.cardContent}>
+            <Typography gutterBottom variant="h5" component="h2">
+                {gem.name}
+                <Heart name={gem.name}></Heart>
+            </Typography>
+            <Typography>
+                Authors: { gem.authors }
+            </Typography>
+        </CardContent>
+    </Card>;
 }

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/UseFedora/frontend-takehome-parcel#readme",
   "dependencies": {
     "@material-ui/core": "^4.5.2",
+    "@material-ui/icons": "^4.5.1",
     "@types/lodash": "^4.14.144",
     "axios": "^0.19.0",
     "concurrently": "^4.0.1",

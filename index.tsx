@@ -7,12 +7,13 @@ import { App } from "./src/app"
 import { configureStore } from "./src/store";
 
 const { store, persistor} = configureStore();
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 ReactDOM.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <App></App>
+        <CssBaseline />
+        <App />
       </PersistGate>
     </Provider>,
   document.getElementById('root'),

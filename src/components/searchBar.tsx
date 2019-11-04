@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
-import ReactDOM from 'react-dom'
 import { useDispatch } from "react-redux";
-
+import Button from '@material-ui/core/Button';
 import { fetchGemsAsync } from '../store/actions';
 import { SearchContext } from '../searchContext';
+import TextField from '@material-ui/core/TextField';
+import { useStyles } from './classes';
 
 export const SearchBar = () => {
     const dispatch = useDispatch();
+    const classes = useStyles();
     const {query, setQuery} = useContext(SearchContext);
 
     const startSearch = () => {
@@ -14,11 +16,15 @@ export const SearchBar = () => {
     };
 
     return <>
-        <input
-            type="text"
-            placeholder="Search Gem"
-            onChange={evt => setQuery(evt.target.value)}
+        <TextField
+          className={classes.searchTextField}
+          label="search"
+          margin="normal"
+          variant="outlined"
+          onChange={evt => setQuery(evt.target.value)}
         />
-        <button disabled={query===""} onClick={startSearch}>search</button>
+        <Button disabled={query===""} onClick={startSearch} variant="contained" color="primary">
+            Search
+        </Button>
     </>
 }
