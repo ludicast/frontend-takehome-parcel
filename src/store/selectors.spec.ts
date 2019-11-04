@@ -7,7 +7,6 @@ import { initialGemState } from "./reducers/gems";
 const initialState: AppState = {
     favorites: initialFavoritesState,
     gems: initialGemState,
-    search: {query: ""}
 }
 
 const populatedState: AppState = {
@@ -16,7 +15,6 @@ const populatedState: AppState = {
         ["capybara", {name: "capybara"} as Gem],
         ["cucumber", {name: "cucumber"} as Gem]
     ]), loadingList: true},
-    search: {query: "rspec"}
 }
 
 describe("selectors", () => {
