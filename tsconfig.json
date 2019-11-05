@@ -9,7 +9,9 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "esModuleInterop": true
   },
   "include": ["src/**/*", "index.tsx"]
 }
