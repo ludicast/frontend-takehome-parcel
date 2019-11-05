@@ -38,6 +38,11 @@ export const useStyles = makeStyles(theme => ({
   cardContent: {
     flexGrow: 1
   },
+  cardHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6)
@@ -65,20 +70,20 @@ export const useStyles = makeStyles(theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing(7),
+    width: theme.spacing(4),
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "left",
     right: 0
   },
   inputRoot: {
     color: "inherit"
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
+    padding: theme.spacing(1, 1, 1, 2),
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {

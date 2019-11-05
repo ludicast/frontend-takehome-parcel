@@ -10,7 +10,7 @@
     3. `redux-persist` (for saving the "favorites" redux slice to local storage)
     4. `reselect` (memoized selectors)
 3. Other libraries
-   1. "modern" `react` (AKA hooks with functional components)
+   1. "modern" `react` (AKA hooks with functional components, uncluding redux and router hooks)
    1. `material-ui` (for widgets)
    2. `react-router`
    3. `lodash` (to safely paste over esnext differences).

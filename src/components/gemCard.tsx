@@ -21,9 +21,9 @@ export const GemCard = ({ gem }: GemCardProps) => {
   return (
     <Card className={classes.card}>
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4" component="h4">
+        <Typography className={classes.cardHeader} variant="h5" component="h5">
           <Heart gem={gem}></Heart>
-          {gem.name}
+          <span>{gem.name}</span>
         </Typography>
         <hr />
         <Typography>
