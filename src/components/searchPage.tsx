@@ -23,6 +23,6 @@ export const SearchPage = () => {
       <GemGrid gems={gemList}></GemGrid>
     </>
   ) : (
-    <EmptyHero msg="Enter Search Term"></EmptyHero>
+    <EmptyHero msg="Search for RubyGems"></EmptyHero>
   );
 };

@@ -1,15 +1,17 @@
 import { fade, makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(theme => ({
+  hero: {
+    padding: 50
+  },
   titleBar: {},
   headerLink: {
     color: "white",
-    textDecoration: "none",
-
+    textDecoration: "none"
   },
   title: {
     flexGrow: 1,
-    paddingLeft: theme.spacing(2),
+    paddingLeft: theme.spacing(2)
   },
   icon: {
     marginRight: theme.spacing(2)

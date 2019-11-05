@@ -1,5 +1,4 @@
-import "@testing-library/jest-dom/extend-expect";
-import * as React from "react";
+import React from "react";
 import { fireEvent } from "@testing-library/react";
 import { Heart } from "./heart";
 import { Gem } from "../models";
