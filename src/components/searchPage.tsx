@@ -1,18 +1,25 @@
-import React, { useContext } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router";
 
 import { currentGemList } from "../store/selectors";
 import { GemGrid } from "./gemGrid";
-import { SearchContext } from "../searchContext";
 import { EmptyHero } from "./emptyHero";
+import { fetchGemsAsync } from "../store/actions";
 
 export const SearchPage = () => {
   const gemList = useSelector(currentGemList);
-  const { query } = useContext(SearchContext);
+  const { query } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (query) {
+      dispatch(fetchGemsAsync.request(query));
+    }
+  }, [query]);
 
   return query ? (
     <>
-      <div>{query}</div>
       <GemGrid gems={gemList}></GemGrid>
     </>
   ) : (

@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
 
 import {
   Card,
@@ -9,18 +8,12 @@ import {
   Typography,
   Button
 } from "@material-ui/core";
-import { SearchContext } from "../searchContext";
-import { fetchGemsAsync } from "../store/actions";
 
 export const EmptyHero = ({ msg }: { msg: string }) => {
-  const dispatch = useDispatch();
   const history = useHistory();
-  const { setQuery } = useContext(SearchContext);
 
   const search = (gem: string) => () => {
-    setQuery(gem);
-    history.push("/");
-    dispatch(fetchGemsAsync.request(gem));
+    history.push(`/gems/${gem}`);
   };
 
   return (

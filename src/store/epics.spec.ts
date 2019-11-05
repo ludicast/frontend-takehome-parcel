@@ -20,7 +20,7 @@ describe("epics", () => {
 
       const dependencies = {
         getJSON: (_url: string) => of(gems),
-        notify: (message: string) => {}
+        notify: (_message: string) => {}
       };
 
       const actions$ = of(fetchGemsAsync.request("cucumber"));
