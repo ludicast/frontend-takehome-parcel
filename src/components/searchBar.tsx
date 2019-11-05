@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { fetchGemsAsync } from "../store/actions";
 import { useStyles } from "./classes";
 import SearchIcon from "@material-ui/icons/Search";
 import { InputBase } from "@material-ui/core";
@@ -12,16 +10,18 @@ export const SearchBar = () => {
   let history = useHistory();
 
   const startSearch = () => {
-    setQuery("");
-    history.push(`/gems/${query}`);
+    if (!!query) {
+      history.push(`/gems/${query}`);
+      setQuery("");
+    }
   };
 
   const changeQuery = (evt: any) => {
     setQuery(evt.target.value);
   };
 
-  const catchReturn = (evt: KeyboardEvent) => {
-    if (evt.key === "Enter" && !!query) {
+  const catchReturn = (evt: any) => {
+    if (evt.key === "Enter") {
       startSearch();
     }
   };
@@ -38,6 +38,7 @@ export const SearchBar = () => {
         }}
         onKeyPress={catchReturn}
         onChange={changeQuery}
+        onBlur={startSearch}
         value={query}
         inputProps={{ "aria-label": "search" }}
       />
